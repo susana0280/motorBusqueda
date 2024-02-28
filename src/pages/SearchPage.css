@@ -81,3 +81,12 @@
     margin-left: 1rem;
     margin-top:-0.3rem;
 }
+
+.searchPage_results{
+
+    max-width: 650px;
+    margin-top: 20px;
+    margin-left: 160px;
+    margin-bottom: 100px;
+    font-size: 14px;
+}

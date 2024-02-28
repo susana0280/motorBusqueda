@@ -16,7 +16,7 @@ const Search = ({hideButtons=false}) => {
   
   const search=(e)=>{
     e.preventDefault();
-    console.log(input)
+
 
     dispatch(setTextString(input))
     navigate('/search')

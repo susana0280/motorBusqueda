@@ -11,8 +11,16 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import AppsIcon from '@mui/icons-material/Apps';
 import { Avatar } from '@mui/material'
+import { selectTextString } from '../features/textSlice'
+import { useSelector } from 'react-redux'
+import useGoogleSearch from '../useGoogleSearch'
+import Results from '../components/Results'
 
 const SearchPage = () => {
+  const textString=useSelector(selectTextString)
+  const {data}=useGoogleSearch(textString)
+
+console.log(data)
   return (
     <div className='searchPage'>
       
@@ -80,6 +88,21 @@ const SearchPage = () => {
           <Avatar className='headerRight_avatar'/>
         </div>
         </div>
+        <h1>{
+          textString &&
+          <div className='searchPage_results'>
+              <p className='searchPage_resultCount'>
+                About {data?.searchInformation.formattedTotalResults}  results ({data?.searchInformation.formattedSearchTime}) seconds
+              </p>
+          </div>
+          
+          }</h1>
+
+          {data?.items.map(item=>(
+
+            <Results key={item.cacheId} data={item} />
+          ))
+          }
     </div>
   )
 }

@@ -1,0 +1,12 @@
+.search_buttons{
+
+    margin-top:30px;
+    display: flex;
+    justify-content: center;
+}
+
+.search_hideButtons{
+    display: none !important;
+
+}
+
